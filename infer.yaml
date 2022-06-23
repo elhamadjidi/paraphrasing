@@ -1,0 +1,30 @@
+defaults:
+  env:
+    apiKey: secret:api_key
+  resources:
+    instance-type: C4
+
+jobs:
+  CloneRepo:
+    outputs:
+      repo:
+        type: volume
+    uses: git-checkout@v1
+    with:
+      url: https://github.com/gradient-ai/Deployments-Create-Deploy-Infer.git
+
+  SendInferenceData:
+    env:
+      SERVE_URL: "..." # Add your serving URL from step 2 here. This will be of the form
+      # `<endpoint>/v1/models/trained-model:predict`,
+      # where the endpoint is shown in the Gradient GUI detail page for the deployment.
+    needs:
+      - CloneRepo
+    inputs:
+      repo: CloneRepo.outputs.repo
+    uses: script@v1
+    with:
+      script: |-
+        cd /inputs/repo
+        python infer.py
+      image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
