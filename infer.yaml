@@ -11,7 +11,7 @@ jobs:
         type: volume
     uses: git-checkout@v1
     with:
-      url: https://github.com/gradient-ai/Deployments-Create-Deploy-Infer.git
+      url: https://github.com/elhamadjidi/paraphrasing.git
 
   SendInferenceData:
     env:

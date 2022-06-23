@@ -8,7 +8,7 @@ jobs:
     uses: git-checkout@v1
     with:
       url: https://github.com/elhamadjidi/paraphrasing.git
-  StyleGan2:
+  TrainModel:
     resources:
       instance-type: P4000
     needs:
@@ -19,7 +19,7 @@ jobs:
       repo:
         type: volume
         with:
-          ref: dsree0o3r64dzhg
+          ref: text-genie
     uses: script@v1
     with:
       script: |-
