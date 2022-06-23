@@ -16,8 +16,8 @@ jobs:
     inputs:
       repo: CloneRepo.outputs.repo
     outputs:
-      repo:
-        type: volume
+      trained-model:
+        type: dataset
         with:
           ref: text-genie
     uses: script@v1
