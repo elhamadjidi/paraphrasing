@@ -13,8 +13,8 @@ jobs:
       instance-type: P4000
     needs:
       - CloneRepo
-    inputs:
-      repo: CloneRepo.outputs.repo
+#    inputs:
+#      repo: CloneRepo.outputs.repo
     outputs:
       repo:
         type: volume
