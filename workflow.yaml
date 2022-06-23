@@ -18,8 +18,8 @@ jobs:
     outputs:
       repo:
         type: volume
-        with:
-          ref: text-genie
+#        with:
+#          ref: text-genie
     uses: script@v1
     with:
       script: |-
