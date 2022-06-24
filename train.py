@@ -20,11 +20,11 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 model = AutoModelForSeq2SeqLM.from_pretrained("ramsrigouthamg/t5-large-paraphraser-diverse-high-quality")
 tokenizer = AutoTokenizer.from_pretrained("ramsrigouthamg/t5-large-paraphraser-diverse-high-quality")
 
-import torch
-
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print("device ", device)
-model = model.to(device)
+# import torch
+#
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# print("device ", device)
+# model = model.to(device)
 
 # Save model
 export_path = os.path.join(MODEL_DIR)
