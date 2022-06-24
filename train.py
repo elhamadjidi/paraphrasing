@@ -31,11 +31,11 @@ export_path = os.path.join(MODEL_DIR)
 print('export_path = {}\n'.format(export_path))
 
 
-filename = f'{export_path}/model_pkl'
+# filename = f'{export_path}/model_pkl'
 # pickle.dump(model, open(filename, 'wb'))
 import pickle
 # create an iterator object with write permission - model.pkl
-with open(filename, 'wb') as files:
+with open('model_pkl', 'wb') as files:
     pickle.dump(model, files)
 
 print('\nModel saved to ' + MODEL_DIR)
