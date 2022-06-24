@@ -30,9 +30,12 @@ model = model.to(device)
 export_path = os.path.join(MODEL_DIR)
 print('export_path = {}\n'.format(export_path))
 
-import pickle
-filename = f'{export_path}/paragh_model.sav'
-pickle.dump(model, open(filename, 'wb'))
 
+# filename = f'{export_path}/paragh_model.sav'
+# pickle.dump(model, open(filename, 'wb'))
+import pickle
+# create an iterator object with write permission - model.pkl
+with open(f'{export_path}/model_pkl', 'wb') as files:
+    pickle.dump(model, files)
 
 print('\nModel saved to ' + MODEL_DIR)
