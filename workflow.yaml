@@ -1,13 +1,20 @@
+defaults:
+  env:
+    apiKey: secret:api_key
+  resources:
+    instance-type: C4
+    
 jobs:
   CloneRepo:
-    resources:
-      instance-type: C5
+#    resources:
+#      instance-type: C5
     outputs:
       repo:
         type: volume
     uses: git-checkout@v1
     with:
       url: https://github.com/elhamadjidi/paraphrasing.git
+      
   TrainModel:
     env:
       MODEL_DIR: /trained-model/1
