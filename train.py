@@ -30,22 +30,22 @@ tokenizer = AutoTokenizer.from_pretrained("ramsrigouthamg/t5-large-paraphraser-d
 export_path = os.path.join(MODEL_DIR)
 print('export_path = {}\n'.format(export_path))
 
-#see the current directory
-import os
 
-cwd = os.getcwd()  # Get the current working directory (cwd)
-files = os.listdir(cwd)  # Get all the files in that directory
-print("Files in %r: %s" % (cwd, files))
 
 filename = f'{export_path}/model_pkl'
 # pickle.dump(model, open(filename, 'wb'))
 import pickle
 
 # create an iterator object with write permission - model.pkl
-with open('/inputs/repo/models', 'wb') as files:
+with open(f'{export_path}', 'wb') as files:
     pickle.dump(model, files)
 
 
 # with open('model_pkl', 'wb') as files:  #this works
 #     pickle.dump(model, files)
 print('\nModel saved to ' + MODEL_DIR)
+
+#see the current directory
+cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)  # Get all the files in that directory
+print("Files in %r: %s" % (cwd, files))
