@@ -41,15 +41,15 @@ jobs:
         cp -R /trained-model /outputs/trained-model
       image: tensorflow/tensorflow:1.14.0-gpu-py3
       
-#  UploadModel:
-#    inputs:
-#      model: TrainModel.outputs.trained-model
-#    outputs:
-#      model-id:
-#        type: string
-#    needs:
-#      - TrainModel
-#    uses: create-model@v1
-#    with:
-#      name: trained-model
-#      type: ONNX
+  UploadModel:
+    inputs:
+      model: TrainModel.outputs.trained-model
+    outputs:
+      model-id:
+        type: string
+    needs:
+      - TrainModel
+    uses: create-model@v1
+    with:
+      name: trained-model
+      type: ONNX
