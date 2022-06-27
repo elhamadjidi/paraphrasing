@@ -1,21 +1,9 @@
-# Gradient Deployments: Fashion-MNIST Example
-#
-# This is part of our basic deployments example (https://github.com/gradient-ai/Deployments) that shows
-#
-# 1: Create and train a TensorFlow deep learning model using Workflows
-# 2: Deploy the model using Deployments
-# 3: Send inference data to the model and receive correct output
-#
-# This Workflow corresponds to step 1 of the above, and calls train.py to do the model training
-#
-# Last updated: Dec 10th 2021
-
 defaults:
   env:
     apiKey: secret:api_key
   resources:
     instance-type: C4
-
+    
 jobs:
   CloneRepo:
     outputs:
@@ -24,11 +12,12 @@ jobs:
     uses: git-checkout@v1
     with:
       url: https://github.com/elhamadjidi/paraphrasing.git
-
+      
   TrainModel:
     env:
-      EPOCHS: "3"
       MODEL_DIR: /trained-model/1
+    resources:
+      instance-type: P4000
     needs:
       - CloneRepo
     inputs:
@@ -37,7 +26,7 @@ jobs:
       trained-model:
         type: dataset
         with:
-          ref: fashion-mnist
+          ref: text-genie
     uses: script@v1
     with:
       script: |-
@@ -48,8 +37,8 @@ jobs:
         cd /inputs/repo
         python train.py
         cp -R /trained-model /outputs/trained-model
-      image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
-
+      image: tensorflow/tensorflow:1.14.0-gpu-py3
+      
   UploadModel:
     inputs:
       model: TrainModel.outputs.trained-model
