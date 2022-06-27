@@ -44,12 +44,13 @@ import pickle
 # create an iterator object with write permission - model.pkl
 with open(f'{export_path}/model_pkl.pkl', 'wb') as files:
     pickle.dump(model, files)
-    cwd = os.getcwd()  # Get the current working directory (cwd)
-    files = os.listdir(cwd)  # Get all the files in that directory
-    print("Files in %r: %s" % (cwd, files))
+
 #these two works
 # with open('/inputs/repo/models', 'wb') as files:
 #     pickle.dump(model, files)
 # with open('model_pkl', 'wb') as files:  #this works
 #     pickle.dump(model, files)
+cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)  # Get all the files in that directory
+print("Files in %r: %s" % (cwd, files))
 print('\nModel saved to ' + MODEL_DIR)
