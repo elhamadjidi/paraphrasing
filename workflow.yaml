@@ -9,6 +9,8 @@ jobs:
     with:
       url: https://github.com/elhamadjidi/paraphrasing.git
   TrainModel:
+    env:
+      MODEL_DIR: /trained-model/1
     resources:
       instance-type: P4000
     needs:
