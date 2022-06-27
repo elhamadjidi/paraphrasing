@@ -1,15 +1,3 @@
-# Gradient Deployments: Fashion-MNIST Example
-#
-# This is part of our basic deployments example (https://github.com/gradient-ai/Deployments) that shows
-#
-# 1: Create and train a TensorFlow deep learning model using Workflows
-# 2: Deploy the model using Deployments
-# 3: Send inference data to the model and receive correct output
-#
-# This Workflow corresponds to step 1 of the above, and calls train.py to do the model training
-#
-# Last updated: Dec 10th 2021
-
 defaults:
   env:
     apiKey: secret:api_key
@@ -37,7 +25,7 @@ jobs:
       trained-model:
         type: dataset
         with:
-          ref: text-genie
+          ref: paraphrasing
     uses: script@v1
     with:
       script: |-
@@ -46,19 +34,19 @@ jobs:
         pip install transformers==4.10.2
         pip install sentencepiece==0.1.96
         cd /inputs/repo
-        python train.py
+        python3 train.py
         cp -R /trained-model /outputs/trained-model
       image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
 
-  UploadModel:
-    inputs:
-      model: TrainModel.outputs.trained-model
-    outputs:
-      model-id:
-        type: string
-    needs:
-      - TrainModel
-    uses: create-model@v1
-    with:
-      name: trained-model
-      type: ONNX
+#  UploadModel:
+#    inputs:
+#      model: TrainModel.outputs.trained-model
+#    outputs:
+#      model-id:
+#        type: string
+#    needs:
+#      - TrainModel
+#    uses: create-model@v1
+#    with:
+#      name: trained-model
+#      type: ONNX
