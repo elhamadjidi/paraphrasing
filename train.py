@@ -42,7 +42,7 @@ filename = f'{export_path}/model_pkl'
 import pickle
 
 # create an iterator object with write permission - model.pkl
-with open(f'{export_path}', 'wb') as files:
+with open(f'{export_path}/model_pkl.pkl', 'wb') as files:
     pickle.dump(model, files)
 #these two works
 # with open('/inputs/repo/models', 'wb') as files:
