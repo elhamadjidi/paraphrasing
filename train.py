@@ -12,9 +12,9 @@
 # Last updated: Dec 07th 2021
 
 # Input parameters
-import os
-# MODEL_DIR = os.path.abspath(os.environ.get('MODEL_DIR', os.getcwd() + 'models'))
-MODEL_DIR = os.path.abspath(os.environ.get('MODEL_DIR', os.getcwd() + '/models'))
+# import os
+# # MODEL_DIR = os.path.abspath(os.environ.get('MODEL_DIR', os.getcwd() + 'models'))
+# MODEL_DIR = os.path.abspath(os.environ.get('MODEL_DIR', os.getcwd() + '/models'))
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 model = AutoModelForSeq2SeqLM.from_pretrained("ramsrigouthamg/t5-large-paraphraser-diverse-high-quality")
@@ -26,19 +26,19 @@ tokenizer = AutoTokenizer.from_pretrained("ramsrigouthamg/t5-large-paraphraser-d
 # print("device ", device)
 # model = model.to(device)
 
-# Save model
-export_path = os.path.join(MODEL_DIR)
-print('export_path = {}\n'.format(export_path))
-
-#see the current directory
-import os
-
-cwd = os.getcwd()  # Get the current working directory (cwd)
-files = os.listdir(cwd)  # Get all the files in that directory
-print("Files in %r: %s" % (cwd, files))
-
-# filename = f'{export_path}/model_pkl'
-# pickle.dump(model, open(filename, 'wb'))
+# # Save model
+# export_path = os.path.join(MODEL_DIR)
+# print('export_path = {}\n'.format(export_path))
+#
+# #see the current directory
+# import os
+#
+# cwd = os.getcwd()  # Get the current working directory (cwd)
+# files = os.listdir(cwd)  # Get all the files in that directory
+# print("Files in %r: %s" % (cwd, files))
+#
+# # filename = f'{export_path}/model_pkl'
+# # pickle.dump(model, open(filename, 'wb'))
 import pickle
 #
 # # create an iterator object with write permission - model.pkl
@@ -50,7 +50,7 @@ with open('/trained-model/1/models/model_pkl.pkl', 'wb') as files:
     pickle.dump(model, files)
 # with open('model_pkl', 'wb') as files:  #this works
 #     pickle.dump(model, files)
-cwd = os.getcwd()  # Get the current working directory (cwd)
-files = os.listdir(cwd)  # Get all the files in that directory
-print("Files in %r: %s" % (cwd, files))
-print('\nModel saved to ' + MODEL_DIR)
+# cwd = os.getcwd()  # Get the current working directory (cwd)
+# files = os.listdir(cwd)  # Get all the files in that directory
+# print("Files in %r: %s" % (cwd, files))
+# # print('\nModel saved to ' + MODEL_DIR)
