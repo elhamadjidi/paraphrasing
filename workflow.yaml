@@ -45,16 +45,15 @@ jobs:
         ls /trained-model/1/models
         cp -R ./trained-model /outputs/trained-model
       image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
-
-#  UploadModel:
-#    inputs:
-#      model: TrainModel.outputs.trained-model
-#    outputs:
-#      model-id:
-#        type: string
-#    needs:
-#      - TrainModel
-#    uses: create-model@v1
-#    with:
-#      name: trained-model
-#      type: ONNX
+  UploadModel:
+    inputs:
+      model: TrainModel.outputs.trained-model
+    outputs:
+      model-id:
+        type: string
+    needs:
+      - TrainModel
+    uses: create-model@v1
+    with:
+      name: t5
+      type: Custom
