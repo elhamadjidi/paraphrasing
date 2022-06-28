@@ -34,6 +34,15 @@ jobs:
         pip install sentencepiece==0.1.96
         cd /inputs/repo
         python3 train.py
+        mkdir -p /trained_model/1/models
+        echo ls /
+        ls /
+        echo ls /trained-model
+        ls /trained-model
+        echo ls /trained-model/1
+        ls /trained-model/1
+        echo ls /trained-model/1/models
+        ls /trained-model/1/models
         cp -R ./trained-model /outputs/trained-model
       image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
 
