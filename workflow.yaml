@@ -24,7 +24,7 @@ jobs:
       trained-model:
         type: dataset
         with:
-          ref: paraphrasing
+          ref: dss4gq9smgp7myi
     uses: script@v1
     with:
       script: |-
@@ -44,6 +44,12 @@ jobs:
         echo ls /trained-model/1/models
         ls /trained-model/1/models
         cp -R /trained-model /outputs/trained-model
+        echo ls /outputs/trained-model
+        ls /outputs/trained-model
+        echo ls /outputs/trained-model/1
+        ls /outputs/trained-model/1
+        echo ls /outputs/trained-model/1/models
+        ls /outputs/trained-model/1/models
       image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
   UploadModel:
     inputs:
