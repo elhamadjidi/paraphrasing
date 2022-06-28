@@ -36,7 +36,7 @@ jobs:
         pip install sentencepiece==0.1.96
         cd /inputs/repo
         python train.py
-        cp -R /trained-model /outputs/trained-model
+        cp -R ./trained-model /outputs/trained-model
       image: tensorflow/tensorflow:1.14.0-gpu-py3
       
   UploadModel:

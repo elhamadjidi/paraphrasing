@@ -15,7 +15,6 @@ jobs:
 
   TrainModel:
     env:
-      EPOCHS: "3"
       MODEL_DIR: /trained-model/1
     needs:
       - CloneRepo
