@@ -16,6 +16,7 @@ jobs:
   TrainModel:
     env:
       MODEL_DIR: /trained-model/1
+#      MODEL_DIR: /trained-model
     needs:
       - CloneRepo
     inputs:
@@ -35,21 +36,21 @@ jobs:
         cd /inputs/repo
         python3 train.py
         mkdir -p /trained-model/1/models
-        echo ls /
-        ls /
-        echo ls /trained-model
-        ls /trained-model
-        echo ls /trained-model/1
-        ls /trained-model/1
-        echo ls /trained-model/1/models
-        ls /trained-model/1/models
+#        echo ls /
+#        ls /
+#        echo ls /trained-model
+#        ls /trained-model
+#        echo ls /trained-model/1
+#        ls /trained-model/1
+#        echo ls /trained-model/1/models
+#        ls /trained-model/1/models
         cp -R /trained-model /outputs
-        echo ls /outputs/trained-model
-        ls /outputs/trained-model
-        echo ls /outputs/trained-model/1
-        ls /outputs/trained-model/1
-        echo ls /outputs/trained-model/1/models
-        ls /outputs/trained-model/1/models
+#        echo ls /outputs/trained-model
+#        ls /outputs/trained-model
+#        echo ls /outputs/trained-model/1
+#        ls /outputs/trained-model/1
+#        echo ls /outputs/trained-model/1/models
+#        ls /outputs/trained-model/1/models
       image: 'nvcr.io/nvidia/tensorflow:21.09-tf2-py3'
   UploadModel:
     inputs:

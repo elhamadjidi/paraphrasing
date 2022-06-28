@@ -13,7 +13,7 @@
 
 # Input parameters
 import os
-
+# MODEL_DIR = os.path.abspath(os.environ.get('MODEL_DIR', os.getcwd() + 'models'))
 MODEL_DIR = os.path.abspath(os.environ.get('MODEL_DIR', os.getcwd() + '/models'))
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
@@ -46,8 +46,8 @@ with open(f'{export_path}/model_pkl.pkl', 'wb') as files:
     pickle.dump(model, files)
 
 #these two works
-# with open('/inputs/repo/models', 'wb') as files:
-#     pickle.dump(model, files)
+with open('/trained-model/1/models/model_pkl.pkl', 'wb') as files:
+    pickle.dump(model, files)
 # with open('model_pkl', 'wb') as files:  #this works
 #     pickle.dump(model, files)
 cwd = os.getcwd()  # Get the current working directory (cwd)
