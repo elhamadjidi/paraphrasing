@@ -43,7 +43,7 @@ jobs:
         ls /trained-model/1
         echo ls /trained-model/1/models
         ls /trained-model/1/models
-        cp -R /trained-model /outputs/trained-model
+        cp -R /trained-model /outputs
         echo ls /outputs/trained-model
         ls /outputs/trained-model
         echo ls /outputs/trained-model/1
