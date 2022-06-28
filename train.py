@@ -37,13 +37,13 @@ cwd = os.getcwd()  # Get the current working directory (cwd)
 files = os.listdir(cwd)  # Get all the files in that directory
 print("Files in %r: %s" % (cwd, files))
 
-filename = f'{export_path}/model_pkl'
+# filename = f'{export_path}/model_pkl'
 # pickle.dump(model, open(filename, 'wb'))
 import pickle
-
-# create an iterator object with write permission - model.pkl
-with open(f'{export_path}/model_pkl.pkl', 'wb') as files:
-    pickle.dump(model, files)
+#
+# # create an iterator object with write permission - model.pkl
+# with open(f'{export_path}/model_pkl.pkl', 'wb') as files:
+#     pickle.dump(model, files)
 
 #these two works
 with open('/trained-model/1/models/model_pkl.pkl', 'wb') as files:
