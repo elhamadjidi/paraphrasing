@@ -47,6 +47,7 @@ import pickle
 
 #these two works
 with open('/trained-model/1/models/model_pkl.pkl', 'wb') as files:
+    print("it's here")
     pickle.dump(model, files)
 # with open('model_pkl', 'wb') as files:  #this works
 #     pickle.dump(model, files)
