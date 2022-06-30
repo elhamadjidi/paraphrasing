@@ -31,7 +31,7 @@ tokenizer = AutoTokenizer.from_pretrained("ramsrigouthamg/t5-large-paraphraser-d
 # print('export_path = {}\n'.format(export_path))
 #
 # #see the current directory
-# import os
+import os
 #
 # cwd = os.getcwd()  # Get the current working directory (cwd)
 # files = os.listdir(cwd)  # Get all the files in that directory
@@ -51,7 +51,7 @@ with open('/inputs/repo/trained-model/1/models/model_pkl.pkl', 'wb') as files:
     pickle.dump(model, files)
 # with open('model_pkl', 'wb') as files:  #this works
 #     pickle.dump(model, files)
-# cwd = os.getcwd()  # Get the current working directory (cwd)
-# files = os.listdir(cwd)  # Get all the files in that directory
-# print("Files in %r: %s" % (cwd, files))
-# # print('\nModel saved to ' + MODEL_DIR)
+cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)  # Get all the files in that directory
+print("Files in %r: %s" % (cwd, files))
+# print('\nModel saved to ' + MODEL_DIR)
