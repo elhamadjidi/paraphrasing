@@ -30,7 +30,7 @@ SERVE_URL = os.getenv("SERVE_URL")
 
 data = json.dumps({"signature_name": "serving_default", "instances": test_images[0:5].tolist()})
 headers = {"content-type": "application/json"}
-json_response = requests.post(SERVE_URL, data=data, headers=headers)
+json_response = requests.post(SERVE_URL, data=data, headers=headers, timeout=60)
 
 print (json_response.text)
 predictions = json.loads(json_response.text)['predictions']
